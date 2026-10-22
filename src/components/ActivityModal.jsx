@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, Calendar, MapPin, User, DollarSign, Check } from 'lucide-react';
 
 export default function ActivityModal({ isOpen, onClose, onSave }) {
@@ -10,6 +10,17 @@ export default function ActivityModal({ isOpen, onClose, onSave }) {
   const [budget, setBudget] = useState('');
   const [status, setStatus] = useState('Persiapan');
   const [description, setDescription] = useState('');
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
 
   const categories = [
     'Kajian & Akademik',

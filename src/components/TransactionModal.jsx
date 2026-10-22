@@ -27,6 +27,17 @@ export default function TransactionModal({ isOpen, onClose, onSave, initialType 
 
   useEffect(() => {
     if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (isOpen) {
       setType(initialType);
       if (prefillData) {
         setTitle(prefillData.title || '');

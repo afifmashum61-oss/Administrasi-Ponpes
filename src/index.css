@@ -3,8 +3,21 @@
 @tailwind utilities;
 
 @layer base {
-  body {
+  html, body {
+    touch-action: manipulation;
+    -webkit-text-size-adjust: 100%;
+    overscroll-behavior-y: none;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Prevent iOS / Mobile Chrome from auto-zooming or jumping when focusing inputs */
+  @media screen and (max-width: 768px) {
+    input,
+    select,
+    textarea {
+      font-size: 16px !important;
+      touch-action: manipulation;
+    }
   }
 }
 

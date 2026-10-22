@@ -197,20 +197,6 @@ export default function App() {
       {/* 2. MOBILE VIEW (Auto active on Smartphone/HP) */}
       {viewMode === 'mobile' && (
         <div className="w-full min-h-screen bg-[#F7F8F6] flex flex-col justify-between max-w-lg mx-auto shadow-sm">
-          {/* Top Status Bar indicator on mobile */}
-          <div className="pt-2 px-5 flex items-center justify-between text-xs text-gray-500 pb-1">
-            <span className="font-bold text-[11px] text-forest-900">Al-Barkah Ponpes</span>
-            <div className="flex items-center gap-2">
-              {/* Option to switch to desktop or onboarding preview */}
-              <button
-                onClick={() => setViewMode('desktop')}
-                className="text-[10px] text-gray-500 hover:text-forest-900 underline font-medium"
-              >
-                Versi Desktop
-              </button>
-            </div>
-          </div>
-
           {/* Main Mobile Screen View */}
           <main className="flex-1 overflow-y-auto">
             {renderMobileScreenContent()}
